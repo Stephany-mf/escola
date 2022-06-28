@@ -15,10 +15,13 @@
         <th>id</th>
         <th>Nome</th>
         <th>Idade</th>
+        <th>Ações</th>
     </tr>   
     <tr *ngFor= "let aluno of alunos">
         <td>{{aluno.id}}</td>
         <td>{{aluno.nome}}</td>
         <td>{{aluno.idade}}</td>
+        <td><button (click)="atualizar(aluno.id)"> atualizar</button></td>
+        <td><button (click)="remover(aluno.id)">Remover</button></td>
     </tr>
 </table>

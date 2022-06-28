@@ -17,11 +17,26 @@ export class AlunosComponent implements OnInit {
   ngOnInit(): void {
     this.listarAlunos();
   }
+  atualizar(id: number){
+    this.alunosService.atualizarAluno(id,this.aluno).subscribe(aluno => {
+      this.aluno = new AlunoModel();
+      this.listarAlunos();
+    },err =>{
+      console.log('Error ao atualizar os alunos', err)
+    })
+  }
+  remover(id: number){
+    this.alunosService.removerAluno(id).subscribe(aluno => {
+      this.aluno = new AlunoModel();
+      this.listarAlunos();
+    },err =>{
+      console.log('Error ao Remover os alunos', err)
+    })
+  }
   cadastrar() {
-    console.log(this.aluno);
     this.alunosService.cadastrarAluno(this.aluno).subscribe(aluno => {
       this.aluno = new AlunoModel();
-      this.listarAlunos
+      this.listarAlunos();
     },err =>{
       console.log('Error ao cadastrar os alunos', err)
     })

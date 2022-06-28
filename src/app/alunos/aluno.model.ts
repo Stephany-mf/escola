@@ -1,4 +1,4 @@
 export class AlunoModel{
-    nome!: String;
+    nome!: string;
     idade!: number;
 }
